@@ -15,6 +15,9 @@ public enum Actions {
 		public boolean run() {return false;}
 	}
 
+	/**
+	 * @param actionBlock 要运行的 {@code Action} 块,执行直到结束
+	 */
 	public static void runAction(final Action actionBlock){
 		Action recent=actionBlock;
 		while(true){
@@ -29,6 +32,7 @@ public enum Actions {
 
 	/**
 	 * 在规定时间内，如果该 {@code Action} 块仍没有结束，将会强制停止
+	 * @see #runAction(Action)
 	 */
 	public static void runTimedAllottedAction(final Action actionBlock, final long allottedMilliseconds){
 		Action recent=actionBlock;
@@ -41,22 +45,6 @@ public enum Actions {
 				recent = recent.next();
 			}
 		}
-	}
-
-	@NotNull
-	@Contract(value = "_, _ -> new", pure = true)
-	public static Action connectBlocking(final Action previous, final Action next){
-		return new Action() {
-			@Override
-			public boolean run() {
-				return previous.run();
-			}
-
-			@Override
-			public Action next() {
-				return next;
-			}
-		};
 	}
 
 	@NotNull

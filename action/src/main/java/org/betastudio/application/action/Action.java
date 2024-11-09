@@ -2,7 +2,7 @@ package org.betastudio.application.action;
 
 public interface Action {
 	/**
-	 * @return 该 {@code Action} 块是否结束
+	 * @return 该 {@code Action} 块是否结束. 为真时,该 {@code Action} 未结束,反之亦然.
 	 */
 	boolean run();
 	default Action next(){return new Actions.FinalNodeAction();}
