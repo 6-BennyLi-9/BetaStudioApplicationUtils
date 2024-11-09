@@ -1,7 +1,7 @@
 package org.betastudio.application.action.utils;
 
 
-import org.betastudio.application.action.utils.actions.Action;
+import org.betastudio.application.action.Action;
 
 public class StatementAction implements Action {
 	public interface StatementNode{

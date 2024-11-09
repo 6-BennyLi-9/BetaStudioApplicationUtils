@@ -1,8 +1,8 @@
 package org.betastudio.application.action.utils;
 
-import org.betastudio.application.action.utils.actions.Action;
-import org.betastudio.application.action.utils.actions.PriorityAction;
-import org.betastudio.application.action.utils.actions.Timer;
+import org.betastudio.application.action.Action;
+import org.betastudio.application.action.PriorityAction;
+import org.betastudio.application.action.Timer;
 
 import java.util.*;
 
