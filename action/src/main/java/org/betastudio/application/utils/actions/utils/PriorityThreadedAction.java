@@ -1,8 +1,8 @@
-package org.betastudio.appliation.utils.actions.utils;
+package org.betastudio.application.utils.actions.utils;
 
 
-import org.betastudio.appliation.utils.actions.Action;
-import org.betastudio.appliation.utils.actions.PriorityAction;
+import org.betastudio.application.utils.actions.Action;
+import org.betastudio.application.utils.actions.PriorityAction;
 
 import java.util.*;
 

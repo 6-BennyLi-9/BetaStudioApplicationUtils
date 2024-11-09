@@ -1,8 +1,7 @@
-package org.betastudio.appliation.utils.actions.utils;
+package org.betastudio.application.utils.actions.utils;
 
 
-import org.betastudio.appliation.utils.actions.Action;
-import org.betastudio.appliation.utils.actions.Actions;
+import org.betastudio.application.utils.actions.Action;
 
 import java.util.Arrays;
 import java.util.List;

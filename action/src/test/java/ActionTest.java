@@ -1,5 +1,5 @@
-import org.betastudio.appliation.utils.actions.Actions;
-import org.betastudio.appliation.utils.actions.utils.*;
+import org.betastudio.application.utils.actions.Actions;
+import org.betastudio.application.utils.actions.utils.*;
 
 public class ActionTest {
 	public static void main(String[] args) {

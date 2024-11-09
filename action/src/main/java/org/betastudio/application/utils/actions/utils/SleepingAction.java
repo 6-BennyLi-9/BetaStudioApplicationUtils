@@ -1,8 +1,8 @@
-package org.betastudio.appliation.utils.actions.utils;
+package org.betastudio.application.utils.actions.utils;
 
 
-import org.betastudio.appliation.utils.actions.Action;
-import org.betastudio.appliation.utils.actions.Timer;
+import org.betastudio.application.utils.actions.Action;
+import org.betastudio.application.utils.actions.Timer;
 
 public final class SleepingAction implements Action {
 	private final Timer timer=new Timer();

@@ -1,4 +1,4 @@
-package org.betastudio.appliation.utils.actions;
+package org.betastudio.application.utils.actions;
 
 public interface Action {
 	/**
