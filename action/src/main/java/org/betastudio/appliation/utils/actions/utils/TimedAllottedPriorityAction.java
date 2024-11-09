@@ -4,11 +4,7 @@ import org.betastudio.appliation.utils.actions.Action;
 import org.betastudio.appliation.utils.actions.PriorityAction;
 import org.betastudio.appliation.utils.actions.Timer;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * 根据 {@code PriorityAction} 的优先级排序后进行执行操作，如果超时后将强制退出执行链
@@ -19,8 +15,9 @@ public class TimedAllottedPriorityAction implements Action {
 	private final long allottedMilliseconds;
 
 	public TimedAllottedPriorityAction(final long allottedMilliseconds,final List<PriorityAction> actions){
-		this.actions=actions;
-		actions.sort(Comparator.comparingLong(x -> -x.getPriorityCode()));
+		this.actions=new ArrayList<>();
+		this.actions.addAll(actions);
+		this.actions.sort(Comparator.comparingLong(x -> -x.getPriorityCode()));
 		this.allottedMilliseconds=allottedMilliseconds;
 	}
 	public TimedAllottedPriorityAction(final long allottedMilliseconds,final PriorityAction... actions){

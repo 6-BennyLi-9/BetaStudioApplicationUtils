@@ -9,6 +9,7 @@ import java.util.List;
 
 public final class LinkedAction implements Action{
 	private final List<Action> actions;
+	private int ptr=0;
 
 	public LinkedAction(final List<Action> actions){
 		this.actions=actions;
@@ -19,8 +20,11 @@ public final class LinkedAction implements Action{
 
 	@Override
 	public boolean run() {
-		Actions.runAction(actions.getFirst());
-		actions.removeFirst();
-		return !actions.isEmpty();
+		if(actions.get(ptr).run()){
+			return true;
+		}else{
+			ptr++;
+			return ptr<actions.size();
+		}
 	}
 }

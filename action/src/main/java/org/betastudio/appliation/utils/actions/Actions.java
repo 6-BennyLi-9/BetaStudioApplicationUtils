@@ -54,4 +54,26 @@ public enum Actions {
 			}
 		};
 	}
+
+	public static PriorityAction asPriority(final Action action){
+		return asPriority(action,0);
+	}
+	public static PriorityAction asPriority(final Action action, long priorityGrade){
+		return new PriorityAction() {
+			@Override
+			public long getPriorityCode() {
+				return priorityGrade;
+			}
+
+			@Override
+			public boolean run() {
+				return action.run();
+			}
+
+			@Override
+			public Action next() {
+				return action.next();
+			}
+		};
+	}
 }
