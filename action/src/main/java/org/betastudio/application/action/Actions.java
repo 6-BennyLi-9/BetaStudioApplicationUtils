@@ -1,4 +1,4 @@
-package org.betastudio.application.utils.actions;
+package org.betastudio.application.action;
 
 
 public enum Actions {

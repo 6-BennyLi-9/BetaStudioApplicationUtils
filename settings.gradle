@@ -1,2 +1,3 @@
-rootProject.name = 'BSApplicationUtils'
-include ':action'
+include 'core'
+include 'action'
+

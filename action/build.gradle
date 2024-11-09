@@ -2,8 +2,8 @@ plugins {
     id 'java'
 }
 
-group = 'org.betastudio.application.utils'
-version = '1.0'
+group = 'org.betastudio.application'
+version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()

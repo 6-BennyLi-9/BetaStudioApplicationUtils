@@ -1,4 +1,4 @@
-package org.betastudio.application.utils.actions;
+package org.betastudio.application.action;
 
 
 import java.util.HashMap;
