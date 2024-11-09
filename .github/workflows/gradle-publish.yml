@@ -21,10 +21,6 @@ jobs:
       packages: write
 
     steps:
-    - name: Get Permissions
-      run: su
-
-    
     - uses: actions/checkout@v4
     - name: Set up JDK 17
       uses: actions/setup-java@v4
@@ -38,12 +34,12 @@ jobs:
       uses: gradle/actions/setup-gradle@af1da67850ed9a4cedd57bfd976089dd991e2582 # v4.0.0
 
     - name: Build with Gradle
-      run: ./gradlew build
+      run: ./gradlew build --chmod=(+|-)x
 
     # The USERNAME and TOKEN need to correspond to the credentials environment variables used in
     # the publishing section of your build.gradle
     - name: Publish to GitHub Packages
-      run: ./gradlew publish
+      run: ./gradlew publish --chmod=(+|-)x
       env:
         MAVEN_USERNAME: ${{ secrets.OSSRH_USERNAME }}
         MAVEN_PASSWORD: ${{ secrets.OSSRH_TOKEN }}
