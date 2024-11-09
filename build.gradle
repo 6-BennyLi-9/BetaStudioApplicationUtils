@@ -2,16 +2,17 @@ plugins {
     id 'java'
 }
 
-group = 'org.betastudio.application'
-version = '1.0-SNAPSHOT'
+apply from:'build.dependencies.gradle'
+
+group = gradle.properties.get(project_group)
+version = gradle.properties.get(project_version)
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+
 }
 
 test {
