@@ -2,7 +2,6 @@ package org.betastudio.application.action.utils;
 
 import org.betastudio.application.action.Action;
 import org.betastudio.application.action.PriorityAction;
-import org.betastudio.application.action.Timer;
 
 import java.util.*;
 
@@ -11,8 +10,8 @@ import java.util.*;
  */
 public class TimedAllottedPriorityAction implements Action {
 	public final List<PriorityAction> actions;
-	private final Timer timer=new Timer();
 	private final long allottedMilliseconds;
+	private boolean initialized=false;
 
 	public TimedAllottedPriorityAction(final long allottedMilliseconds,final List<PriorityAction> actions){
 		this.actions=new ArrayList<>();
@@ -24,16 +23,21 @@ public class TimedAllottedPriorityAction implements Action {
 		this(allottedMilliseconds,Arrays.asList(actions));
 	}
 
+	private double startTime;
+
 	@Override
 	public boolean run() {
-		timer.restart();
+		if(!initialized){
+			startTime=System.nanoTime()/1e6;
+			initialized=true;
+		}
 		final Set<PriorityAction> removes=new HashSet<>();
 
 		for(final PriorityAction action:actions){
 			if(!action.run()){
 				removes.add(action);
 			}
-			if(timer.stopAndGetDeltaTime()>=allottedMilliseconds){
+			if(System.nanoTime()/1e6-startTime>=allottedMilliseconds){
 				break;
 			}
 		}

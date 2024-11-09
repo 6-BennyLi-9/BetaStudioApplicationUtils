@@ -1,6 +1,9 @@
 package org.betastudio.application.action;
 
 
+import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.NotNull;
+
 public enum Actions {
 	;
 
@@ -28,10 +31,9 @@ public enum Actions {
 	 * 在规定时间内，如果该 {@code Action} 块仍没有结束，将会强制停止
 	 */
 	public static void runTimedAllottedAction(final Action actionBlock, final long allottedMilliseconds){
-		final Timer timer=new Timer();
 		Action recent=actionBlock;
-		timer.restart();
-		while (!(timer.stopAndGetDeltaTime() >= allottedMilliseconds)) {
+		double start=System.nanoTime()/1e6;
+		while (!(System.nanoTime()/1e6-start >= allottedMilliseconds)) {
 			if (!recent.run()) {
 				if (recent.next() instanceof FinalNodeAction) {
 					break;
@@ -41,6 +43,8 @@ public enum Actions {
 		}
 	}
 
+	@NotNull
+	@Contract(value = "_, _ -> new", pure = true)
 	public static Action connectBlocking(final Action previous, final Action next){
 		return new Action() {
 			@Override
@@ -55,9 +59,13 @@ public enum Actions {
 		};
 	}
 
+	@NotNull
+	@Contract(value = "_ -> new", pure = true)
 	public static PriorityAction asPriority(final Action action){
 		return asPriority(action,0);
 	}
+	@Contract(value = "_, _ -> new", pure = true)
+	@NotNull
 	public static PriorityAction asPriority(final Action action, long priorityGrade){
 		return new PriorityAction() {
 			@Override
