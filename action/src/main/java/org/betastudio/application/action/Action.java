@@ -7,5 +7,5 @@ public interface Action {
 	boolean run();
 	default Action next(){return new Actions.FinalNodeAction();}
 
-	default String paramsString(){return String.valueOf(this.hashCode());};
+	default String paramsString(){return String.valueOf(this.hashCode());}
 }
