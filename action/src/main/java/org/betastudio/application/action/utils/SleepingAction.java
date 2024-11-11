@@ -2,6 +2,7 @@ package org.betastudio.application.action.utils;
 
 
 import org.betastudio.application.action.Action;
+import org.jetbrains.annotations.NotNull;
 
 public final class SleepingAction implements Action {
 	private final long sleepMilliseconds;
@@ -19,5 +20,11 @@ public final class SleepingAction implements Action {
 			initialized=true;
 		}
 		return System.nanoTime()/1e6-startTime < sleepMilliseconds;
+	}
+
+	@NotNull
+	@Override
+	public String paramsString() {
+		return "t:"+sleepMilliseconds+"ms";
 	}
 }

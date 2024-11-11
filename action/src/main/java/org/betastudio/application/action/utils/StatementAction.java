@@ -2,8 +2,12 @@ package org.betastudio.application.action.utils;
 
 
 import org.betastudio.application.action.Action;
+import org.jetbrains.annotations.NotNull;
 
 public class StatementAction implements Action {
+	/**
+	 * @apiNote 如果要打印有实际意义的 {@code paramsString} 输出，需要在实现接口时重写 {@link #toString()}
+	 */
 	public interface StatementNode{
 		void run();
 	}
@@ -22,5 +26,11 @@ public class StatementAction implements Action {
 	public boolean run() {
 		node.run();
 		return false;
+	}
+
+	@NotNull
+	@Override
+	public String paramsString() {
+		return "statement:"+node;
 	}
 }

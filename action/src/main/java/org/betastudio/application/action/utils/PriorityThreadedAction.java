@@ -3,6 +3,7 @@ package org.betastudio.application.action.utils;
 
 import org.betastudio.application.action.Action;
 import org.betastudio.application.action.PriorityAction;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
@@ -31,5 +32,15 @@ public class PriorityThreadedAction implements Action {
 		}
 		actions.removeAll(removes);
 		return !actions.isEmpty();
+	}
+
+	@NotNull
+	@Override
+	public String paramsString() {
+		final StringBuilder stringBuilder=new StringBuilder("{");
+		for(PriorityAction action:actions){
+			stringBuilder.append("[").append(action.getPriorityCode()).append(")").append(action.paramsString()).append(",");
+		}
+		return stringBuilder.append("}").toString();
 	}
 }
