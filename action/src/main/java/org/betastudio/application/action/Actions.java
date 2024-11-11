@@ -10,7 +10,7 @@ public enum Actions {
 	/**
 	 * 标志 {@code Action} 块的最后一个节点
 	 */
-	public static class FinalNodeAction implements Action{
+	public static final class FinalNodeAction implements Action{
 		@Override
 		public boolean run() {return false;}
 	}
@@ -69,6 +69,11 @@ public enum Actions {
 			@Override
 			public Action next() {
 				return action.next();
+			}
+
+			@Override
+			public String paramsString() {
+				return action.paramsString();
 			}
 		};
 	}
