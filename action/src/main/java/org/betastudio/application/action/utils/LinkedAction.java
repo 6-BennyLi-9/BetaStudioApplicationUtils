@@ -35,7 +35,7 @@ public final class LinkedAction implements Action{
 	@Override
 	public String paramsString() {
 		final StringBuilder stringBuilder=new StringBuilder("{");
-		for(Action action:actions){
+		for(final Action action:actions){
 			stringBuilder.append(action.paramsString()).append(",");
 		}
 		return stringBuilder.append("}").toString();

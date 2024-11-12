@@ -4,7 +4,11 @@ package org.betastudio.application.action.utils;
 import org.betastudio.application.action.Action;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 多线程的 {@code Action} 块，对 {@code tps} 要求较高
@@ -36,7 +40,7 @@ public final class ThreadedAction implements Action {
 	@Override
 	public String paramsString() {
 		final StringBuilder stringBuilder=new StringBuilder("{");
-		for(Action action:actions){
+		for(final Action action:actions){
 			stringBuilder.append(action.paramsString()).append(",");
 		}
 		return stringBuilder.append("}").toString();

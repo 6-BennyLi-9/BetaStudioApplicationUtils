@@ -5,7 +5,12 @@ import org.betastudio.application.action.Action;
 import org.betastudio.application.action.PriorityAction;
 import org.jetbrains.annotations.NotNull;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 根据 {@code PriorityAction} 的优先级排序后进行执行操作
@@ -38,7 +43,7 @@ public class PriorityThreadedAction implements Action {
 	@Override
 	public String paramsString() {
 		final StringBuilder stringBuilder=new StringBuilder("{");
-		for(PriorityAction action:actions){
+		for(final PriorityAction action:actions){
 			stringBuilder.append("[").append(action.getPriorityCode()).append(")").append(action.paramsString()).append(",");
 		}
 		return stringBuilder.append("}").toString();

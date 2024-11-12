@@ -5,7 +5,11 @@ import org.betastudio.application.action.Actions;
 import org.betastudio.application.action.PriorityAction;
 import org.betastudio.application.action.utils.PriorityThreadedAction;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * 将 {@code Action} 块打包，可以代替部分使用集合、队列等数据结构维护 {@code Action} 块的方法
@@ -17,10 +21,10 @@ public class ActionPackage {
 		actions=new ArrayList<>();
 	}
 
-	public void add(PriorityAction action){
+	public void add(final PriorityAction action){
 		actions.add(action);
 	}
-	public void add(Action action){
+	public void add(final Action action){
 		add(Actions.asPriority(action));
 	}
 
@@ -36,7 +40,7 @@ public class ActionPackage {
 		sort();
 		final Set<PriorityAction> remove=new HashSet<>();
 
-		for(PriorityAction action:actions){
+		for(final PriorityAction action:actions){
 			if(!action.run()){
 				remove.add(action);
 			}
