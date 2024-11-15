@@ -8,6 +8,7 @@ import java.util.Vector;
 
 /**
  * 一个非常好用的计时器
+ * @apiNote 输出时间值单位均为毫秒
  */
 public class Timer {
     public double StartTime,EndTime;
