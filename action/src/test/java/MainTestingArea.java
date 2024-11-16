@@ -8,7 +8,7 @@ public class MainTestingArea {
 		public PrintAction(){
 			printVal=0;
 		}
-		public PrintAction(long printVal){
+		public PrintAction(final long printVal){
 			this.printVal=printVal;
 		}
 
@@ -19,8 +19,8 @@ public class MainTestingArea {
 		}
 	}
 
-	public static void main(String[] args) {
-		TaggedActionPackage thread=new TaggedActionPackage();
+	public static void main(final String[] args) {
+		final TaggedActionPackage thread=new TaggedActionPackage();
 		thread.add("print1",new PrintAction(10));
 		thread.add("print2",new PrintAction(20));
 

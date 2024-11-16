@@ -1,14 +1,15 @@
 import org.betastudio.application.core.Timer;
 
-public class TimerTest {
+public enum TimerTest {
+	;
 	public static Timer timer;
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		init();
 
 		do {
 			loop();
-		} while (Timer.getCurrentTime() - timer.getTimeTag("start") < 1000);
+		} while (1000 > Timer.getCurrentTime() - timer.getTimeTag("start"));
 	}
 
 	public static void init(){

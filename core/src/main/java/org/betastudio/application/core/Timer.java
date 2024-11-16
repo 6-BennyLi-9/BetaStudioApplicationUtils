@@ -24,7 +24,7 @@ public class Timer {
     }
 
     public static double getCurrentTime(){
-        return System.nanoTime()/1e6;
+        return System.nanoTime()/ 1.0e6;
     }
 
     /**重新定义{@code StartTime}*/
